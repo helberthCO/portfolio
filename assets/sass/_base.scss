@@ -1,0 +1,93 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  position: relative;
+  color: $black;
+  font: {
+    family: $primary_font;
+    weight: 400;
+    size: $browser-context;
+  };
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.btn{
+  @extend %btn;
+}
+.header{
+  width: 100vw;
+  height: 30vh;
+  &__background{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 120%;
+    overflow: hidden;
+    &:before{
+      @include pseudo($left:-5%, $bottom:10vh, $z:-1);
+      width: 110%;
+      height: 100%;
+      background: linear-gradient(to top left, $secondary_color, $primary_color);
+      transform: rotate(-4deg);
+    }
+  }
+  &__image{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(30vh - 120px);
+    margin: auto;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border: 4px solid $black;
+  }
+}
+main{
+  width: 100vw;
+  height: calc(70vh - 50px);
+}
+.subtitle{
+  color: $secondary_color;
+}
+.social{
+  margin-top: 20px;
+  &__item{
+    font-size: em(25px);
+    margin: 8px;
+    i{
+      color: $secondary_color;
+      @extend %animate;
+    }
+    &:hover i{
+      color: $black;
+    }
+  }
+}
+.footer{
+  height: 50px;
+  width: 100vw;
+  background: $primary_color;
+  &__list{
+    i{
+      margin-left: 4px;
+      @extend %animate;
+    }
+    a{
+      color: $white;
+      &:hover{
+        color: $third_color;
+        i{
+          transform: translateX(10px);
+        }
+      }
+    }
+  }
+}
